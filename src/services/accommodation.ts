@@ -31,18 +31,6 @@ accommodationRouter.get("/destinations/:id", async (req, res) => {
   res.status(200).send(accommodations);
 });
 
-/*
-POST /destinations will add a new destination to be chosen as a location 
-add a destination  req.body {Heraklion} return id
-
-for POSTing your hotel anymore
-req.body({name: "", location: ObjectId from destinations})
-400 if invalid data
-Mind that now POST /accommodation must reference the city by ID
-GET /destinations/:city now becomes GET /destinations/:id i.e. 
-cities are not identified anymore by their own string (like Paris) 
-but by an ObjectID 
-*/
 accommodationRouter.post("/destinations", async (req, res) => {
   try {
     const destination = await new DestinationModel({

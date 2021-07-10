@@ -6,8 +6,6 @@ import dotenv from "dotenv";
 
 dotenv.config();
 const request = supertest(app);
-// MDB_URL=mongodb+srv://strivago-master:TyqZ3oYzi4qqFZ79@m6.m0kux.mongodb.net/strivago
-// MDB_URL_TEST=mongodb+srv://strivago-master:TyqZ3oYzi4qqFZ79@m6.m0kux.mongodb.net/strivagoTest
 
 const inValidData = {
   name: "",
@@ -23,19 +21,6 @@ describe("test environment", () => {
       });
   });
 
-  // const destination = {
-  //   location: "Greece",
-  // };
-  // const destination1 = {
-  //   location: "Germany",
-  // };
-  // const gres1 = await request
-  //   .post("/accommodation/destinations")
-  //   .send(destination);
-  // const id1 = gres1.body._id;
-  // const gres2 = await request
-  //   .post("/accommodation/destinations")
-  //   .send(destination1);
   let destId = "";
 
   const validData = {

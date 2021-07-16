@@ -1,6 +1,5 @@
 import express from "express";
-import AccommodationModel from "../DB/accommodations/index";
-import { DestinationModel } from "../DB/accommodations/index";
+import { DestinationModel ,AccommodationModel} from "../DB/accommodations/index";
 import mongoose from "mongoose";
 
 const accommodationRouter = express.Router();
@@ -66,13 +65,13 @@ accommodationRouter.get("/:id", async (req, res) => {
 
 accommodationRouter.post("/", async (req, res, next) => {
   try {
-    const accommodation = await new AccommodationModel(req.body);
-    await accommodation.save();
-    res.status(200).send(accommodation);
-  } catch (error) {
-    error.name === "ValidationError"
-      ? res.status(400).send("Invalid obj")
-      : next();
+    const accommodation =  new AccommodationModel(req.body);
+    console.log(req.body)
+   const newAccommodation =   await accommodation.save();
+    res.status(200).send(newAccommodation);
+  } catch (error:any) {
+  res.status(400).send(error.message)
+     
   }
 });
 
